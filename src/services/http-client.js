@@ -1,7 +1,7 @@
 class HttpClient {
-    get(url)  {
-        return fetch(url)
+    get(url, params)  {
+        return fetch(url, params)
     }
 }
 
-export default new HttpClient();
+ export const  httpClient = new HttpClient();

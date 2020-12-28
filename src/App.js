@@ -1,9 +1,10 @@
 import React, { useEffect, useCallback } from "react";
 import { useSelector } from "react-redux";
-import './App.css';
-import wishlist from "./redux/reducers/wishlist";
 import {Header} from "./components/header";
 import {ProductList} from "./components/product-list";
+import {useServices} from "./services";
+import './App.css';
+
 
 // react devtools extension
 // redux devtools extension
@@ -33,6 +34,8 @@ function App() {
     wishlist,
     products
   }));
+
+  const {productService} = useServices();
 
   const fetchData = useCallback(() => {
 

@@ -1,6 +1,8 @@
 import React from "react";
 
 export const ProductItem = ({
+    isAddedToCart,
+    isAddedToWishlist,
     onAddToCart,
     onAddToWishList,
     product,
@@ -12,8 +14,16 @@ export const ProductItem = ({
             <h5>{title}</h5>
             <h5>{price}</h5>
             <h5>{description}</h5>
-            <button onClick={() => onAddToCart(product)}>add to cart</button>
-            <button onClick={() => onAddToWishList(product)}>add to wishlist</button>
+            <button
+                style={{background: isAddedToWishlist ? 'lightcoral' : 'lightgreen'}}
+                onClick={() => onAddToWishList(product)}>
+                {isAddedToWishlist ? 'remove from wishlist' :'add to wishlist'}
+            </button>
+            <button
+                style={{background: isAddedToCart ? 'lightcoral' : 'lightgreen'}}
+                onClick={() => onAddToCart(product)}>
+                {isAddedToCart ? 'remove from cart' : 'add to cart'}
+            </button>
             <hr/>
         </div>
     )

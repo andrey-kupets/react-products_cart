@@ -5,6 +5,7 @@ import { toggleItemInCart, toggleItemInWishList } from '../../redux';
 export const ProductList = ({products}) => {
 
     const dispatch = useDispatch();
+
     const onAddToCart = (product) => {
         dispatch(toggleItemInCart(product))
     };

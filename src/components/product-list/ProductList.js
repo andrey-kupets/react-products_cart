@@ -1,7 +1,12 @@
 import React from "react";
+import {ProductItem} from "../product-item";
 
-export const ProductList = (props) => {
+export const ProductList = ({products}) => {
     return (
-        null
+        <div>
+            {products.map((product) => (
+                <ProductItem key={product.id} product={product}/>
+            ))}
+        </div>
     );
 };

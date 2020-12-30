@@ -11,9 +11,11 @@ export const ProductList = ({products}) => {
     const onAddToCart = (product) => {
         dispatch(toggleItemInCart(product))
     };
+
     const onAddToWishList = (product) => {
         dispatch(toggleItemInWishList(product))
     };
+
     return (
         <div>
             {products.map((product) => (

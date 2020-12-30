@@ -18,7 +18,7 @@ export default (state = initialState, action) => {
                 updatedCart.push(action.payload);
             }
 
-            const totalPricesCart = updatedCart.reduce((acc, el) => acc + el.price, 0)
+            const totalPricesCart = updatedCart.reduce((acc, el) => acc + el.price, 0).toFixed(2);
 
             return {...state, cart: updatedCart, totalPricesCart};
         }

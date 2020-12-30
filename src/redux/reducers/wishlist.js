@@ -22,7 +22,7 @@ export default (state = initialState, action) => {
                 updatedWishlist.push(action.payload)
             }
 
-            const totalPricesWL = updatedWishlist.reduce((acc, el) => acc += el.price, 0);
+            const totalPricesWL = updatedWishlist.reduce((acc, el) => acc += el.price, 0).toFixed(2);
             console.log(totalPricesWL)
 
             return {...state, wishlist: updatedWishlist, totalPricesWL };

@@ -2,7 +2,7 @@ import React from "react";
 import {useSelector} from "react-redux";
 
 export const Header = (props) => {
-    const { cart, wishlist } = useSelector(({cart: {cart}, wishlist: {wishlist}}) => ({cart, wishlist}))
+    const { cart, wishlist} = useSelector(({cart: {cart}, wishlist: {wishlist}}) => ({cart, wishlist}))
     return (
         <header className='d-flex justify-between align-center'>
             <h2>Wellcome to ...shop</h2>

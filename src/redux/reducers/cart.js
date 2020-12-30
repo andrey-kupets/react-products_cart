@@ -1,7 +1,8 @@
 import {TOGGLE_ITEM_TO_CART} from "../action-types";
 
 const initialState = {
-    cart: []
+    cart: [],
+    totalPricesCart: 0
 }
 
 export default (state = initialState, action) => {
@@ -16,7 +17,10 @@ export default (state = initialState, action) => {
             if (updatedCart.length === state.cart.length) {
                 updatedCart.push(action.payload);
             }
-            return {...state, cart: updatedCart};
+
+            const totalPricesCart = updatedCart.reduce((acc, el) => acc + el.price, 0)
+
+            return {...state, cart: updatedCart, totalPricesCart};
         }
         default: {
             return state;

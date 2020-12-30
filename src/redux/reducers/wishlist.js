@@ -2,7 +2,7 @@ import { TOGGLE_ITEM_TO_WISHLIST } from '../action-types';
 
 const initialState = {
     wishlist: [],
-    totalPrices: 0
+    totalPricesWL: 0
 }
 
 export default (state = initialState, action) => {
@@ -22,23 +22,10 @@ export default (state = initialState, action) => {
                 updatedWishlist.push(action.payload)
             }
 
-            const prices = [];
+            const totalPricesWL = updatedWishlist.reduce((acc, el) => acc += el.price, 0);
+            console.log(totalPricesWL)
 
-            // for (let i = 0; i < updatedWishlist.length; i++) {
-            //     const price = updatedWishlist[i].price;
-            //     console.log(price)
-            //     prices.push(price)
-            //     console.log(prices)
-            //     const totalPrices = prices.reduce((acc, el) => acc + el, 0);
-            //     // const totalPrices = prices.reduce((acc, el) => (acc += el), 0);
-            //
-            //     console.log('totalPrices')
-            //     console.log(totalPrices)
-            // }
-            const totalPrices = updatedWishlist.reduce((acc, el) => (acc += el.price), 0);
-
-
-            return {...state, wishlist: updatedWishlist, totalPrices };
+            return {...state, wishlist: updatedWishlist, totalPricesWL };
         }
         default: {
             return state;
